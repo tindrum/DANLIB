@@ -64,6 +64,24 @@ void ONE<T, n> :: Average( T sum,float& ave)
 #ifndef __STACK__
 #define __STACK__
 
+
+// Stack class
+// Implements basic stack functions:
+//   push
+//   pop
+//   isEmpty - user must test,
+//             no fail mechanism
+//             if pop when empty
+//   isFull  - user must test
+//   clearStack - only sets top pointer
+//                to zero, does not free
+//                any objects in stack.
+//   max - returns maximum allowed items
+//         for object. maxSize is initiallized
+//         by Stack constructor,
+//         so maxSize varies for each
+//         instance.
+
 template<class T, int maxSize>
 class Stack {
 private:
@@ -99,6 +117,9 @@ void Stack<T,maxSize>::push(T item){
     a[top++] = item;
 }
 
+// TODO: Clear stack of memory-using objects
+//       when clearing stack, or decrement
+//       use counts if objects have them.
 template<class T, int maxSize>
 void Stack<T,maxSize>::clearStack(){
     top = 0;
